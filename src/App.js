@@ -1,8 +1,6 @@
 import Hero from './components/Hero/Hero'
 import SearchForm from './components/SearchForm/SearchForm'
 import List from './components/List/List'
-import TextInput from './components/TextInput/TextInput'
-import Button from './components/Button/Button'
 import Container from './components/Container/Container'
 
 const App = () => {
