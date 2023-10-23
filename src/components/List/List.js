@@ -36,7 +36,7 @@ const List = () => {
     ]);
 
     const addColumn = newColumn => {
-        setColumns([...columns, { id: shortid(), title: newColumn.title, icon: newColumn.icon }]);
+        setColumns([...columns, { id: shortid(), title: newColumn.title, icon: newColumn.icon, cards: [] }]);
     };
 
     const addCard = (newCard, columnId) => {
