@@ -3,9 +3,11 @@ import Card from '../Card/Card';
 import CardForm from '../CardForm/CardForm';
 import { useSelector } from 'react-redux';
 
-const Column = props => {
+const Column = (props, state) => {
 
-const cards = useSelector(state => state.cards.filter(card => card.columnId === props.id));
+const searchString = state.searchString;
+
+const cards = useSelector(state => state.cards.filter(card => card.columnId === props.id && card.title.toLowerCase().includes(searchString.toLowerCase())));
 
     return (
         <article className={styles.column}>
