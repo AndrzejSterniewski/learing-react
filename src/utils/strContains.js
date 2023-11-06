@@ -1,4 +1,4 @@
-const strContains = ( { title } , searchString) => {
+const strContains = ( title , searchString) => {
     if (title.toLowerCase().includes(searchString.toLowerCase())) 
     return true ;
     else 
