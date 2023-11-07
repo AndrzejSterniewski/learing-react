@@ -1,11 +1,11 @@
 import Container from '../Container/Container';
 import styles from './NavBar.module.scss';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
     return (
         <nav className={styles.navBar}>
-            <Container>
+            <Container className={styles.container}>
                 <a href="/">
                     <div className="fa fa-tasks navIcon"></div>
                 </a>

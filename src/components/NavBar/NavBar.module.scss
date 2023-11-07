@@ -1,6 +1,5 @@
 @import '../../styles/settings.scss';
 
-
 .navBar {
     display: flex;
     // margin: auto;
@@ -9,7 +8,7 @@
     // align-items: center;
 
     // !!! to do
-    Container {
+    .container {
         display: flex;
         justify-content: space-between;
         flex: 1;
@@ -38,12 +37,6 @@
             margin: 10px;
         }
     }
-
-    // .navigation 
-    //     display: flex;
-    // justify-content: space-between;
-    // flex: 1
-    // }
 
     .linkActive {
         color: $color-warning;
