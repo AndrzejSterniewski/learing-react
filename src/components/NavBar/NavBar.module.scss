@@ -1,0 +1,54 @@
+@import '../../styles/settings.scss';
+
+
+.navBar {
+    display: flex;
+    // margin: auto;
+    // justify-content: space-between;
+    background-color: darken($color-dark, 3%);
+    // align-items: center;
+
+    // !!! to do
+    Container {
+        display: flex;
+        justify-content: space-between;
+        flex: 1;
+        }
+
+    a div {
+        font-size: 24px;
+        margin-left: 40px;
+        color:#ffffff;
+        flex: 1;
+        margin: auto;
+        }
+
+    ul {
+        margin-right: 40px;
+
+        li {
+        list-style: none;
+        display: inline;
+        font-weight: bold;
+        }
+    
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 10px;
+        }
+    }
+
+    // .navigation 
+    //     display: flex;
+    // justify-content: space-between;
+    // flex: 1
+    // }
+
+    .linkActive {
+        color: $color-warning;
+    }
+}
+
+
+
