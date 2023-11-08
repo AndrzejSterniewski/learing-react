@@ -1,6 +1,8 @@
+import styles from './NotFound.module.scss';
+
 const NotFound = () => {
     return (
-        <div>404 not found</div>
+        <div className={styles.message}>404 not found</div>
     )
 }
 

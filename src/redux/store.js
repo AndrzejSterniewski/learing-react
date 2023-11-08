@@ -11,14 +11,27 @@ import strContains from '../utils/strContains';
 //   .filter(card => card.columnId === columnId && card.title.toLowerCase().includes(searchString.toLowerCase()));
 
 //ver 3
+
+// SELECTORS
 export const getFilteredCards = ({ cards, searchString }, columnId) => cards
   .filter(card => card.columnId === columnId && strContains(card.title, searchString));
 
+export const getListById = ({ lists }, listId) => lists.find(list => list.id === listId)
+
 export const getAllColumns = (state => state.columns);
+
+export const getColumnsByList = ( { columns }, listId) => columns.filter(column => column.listId === listId);
+
+export const getAllLists = (state => state.lists);
+
+
 
 export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
 
 export const addCard = payload => ({ type: 'ADD_CARD', payload });
+
+// NEW CODE
+export const addList = payload => ({ type: 'ADD_LIST', payload });
 
 export const updateSearchstring = payload => ({ type: 'UPDATE_SEARCHSTRING', payload });
 
@@ -30,6 +43,8 @@ const reducer = (state, action) => {
       return { ...state, columns: [...state.columns, { ...action.payload, id: shortid() }] };
     case 'ADD_CARD':
       return { ...state, cards: [...state.cards, { ...action.payload, id: shortid() }] };
+      case 'ADD_LIST':
+        return { ...state, lists: [...state.lists, { ...action.payload, id: shortid() }]};
     case 'UPDATE_SEARCHSTRING':
       return { ...state, searchString: action.payload };
     default:
