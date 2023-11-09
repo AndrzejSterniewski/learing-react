@@ -1,11 +1,10 @@
-import PageTitle from '../PageTitle/PageTitle';
 import styles from './About.module.scss';
+import PageTitle from '../PageTitle/PageTitle';
 
 const About = () => {
     return (
         <article className={styles.about}>
             <PageTitle>About</PageTitle>
-            {/* <h1>About</h1> */}
             <p>lorem ipsum</p>
         </article>
     )
