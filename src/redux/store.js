@@ -30,7 +30,6 @@ export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
 
 export const addCard = payload => ({ type: 'ADD_CARD', payload });
 
-// NEW CODE
 export const addList = payload => ({ type: 'ADD_LIST', payload });
 
 export const updateSearchstring = payload => ({ type: 'UPDATE_SEARCHSTRING', payload });

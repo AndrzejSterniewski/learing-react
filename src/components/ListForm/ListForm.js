@@ -8,25 +8,25 @@ import shortid from 'shortid';
 
 const ListForm = props => {
 
-    const [listTitle, setListTitle] = useState('');
-    const [listDescription, setListDescription] = useState('');
+    const [title, setListTitle] = useState('');
+    const [description, setListDescription] = useState('');
 
     const dispatch = useDispatch();
 
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(addList({ listTitle, listDescription, id: shortid() }));
+        dispatch(addList({ title, description, id: shortid() }));
         setListTitle('');
         setListDescription('');
-
-        return (
-            <form className={styles.listForm} onSubmit={handleSubmit}>
-                <span className={styles.spanStyle}>Title:</span><TextInput value={listTitle} onChange={e => setListTitle(e.target.value)} />
-                <span className={styles.spanStyle}>Description:</span><TextInput value={listDescription} onChange={e => setListDescription(e.target.value)} />
-                <Button>Add list</Button>
-            </form>
-        )
-    }
-}
+    };
+    
+    return (
+        <form className={styles.listForm} onSubmit={handleSubmit}>
+            <span className={styles.spanStyle}>Title:</span><TextInput value={title} onChange={e => setListTitle(e.target.value)} />
+            <span className={styles.spanStyle}>Description:</span><TextInput value={description} onChange={e => setListDescription(e.target.value)} />
+            <Button>Add list</Button>
+        </form>
+    );
+};
 
 export default ListForm;
