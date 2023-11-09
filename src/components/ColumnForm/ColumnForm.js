@@ -2,15 +2,14 @@ import styles from './ColumnForm.module.scss';
 import { useState } from 'react';
 import Button from '../Button/Button';
 import TextInput from '../TextInput/TextInput';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import shortid from 'shortid';
-import { addColumn, getAllColumns } from '../../redux/store';
+import { addColumn } from '../../redux/store';
 
 const ColumnForm = props => {
 
     const [title, setTitle] = useState('');
     const [icon, setIcon] = useState('');
-
 
     // const columns = useSelector(column => getAllColumns(column.listId));
 
