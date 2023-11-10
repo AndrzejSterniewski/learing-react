@@ -1,15 +1,18 @@
 import styles from './Card.module.scss';
 import { useState } from 'react';
-import { toggleCardFavorite } from '../../redux/store';
-import { useDispatch } from 'react-redux';
+import { getFavoriteCards, toggleCardFavorite } from '../../redux/store';
+import { useDispatch, useSelector } from 'react-redux';
 import shortid from 'shortid';
 import clsx from 'clsx';
 
 const Card = props => {
 
     const [isFavorite, setFavorite] = useState(false);
-
+    
     const dispatch = useDispatch();
+
+    const favCards = useSelector(() => getFavoriteCards);
+    console.log(isFavorite);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -18,19 +21,14 @@ const Card = props => {
         // dispatch({ type: 'ADD_COLUMN', payload: { title, icon, id: shortid() } });
         
         // dispatch(toggleCardFavorite({ id: shortid(), title, icon, isFavorite }));
-        dispatch(toggleCardFavorite({ id: shortid(), isFavorite }));
+        dispatch(toggleCardFavorite({ id: shortid(), isFavorite, title: props.title }));
     };
 
     return (
             <li className={styles.card} onSubmit={handleSubmit}>{props.title}
-            {/* <button onClick={() => setFavorite(!isFavorite)}><span className={styles.icon + ' fa fa-star-o'}></span></button> */}
-            <button onClick={() => setFavorite(!isFavorite)}><span className={clsx(styles.icon + ' fa fa-star-o', styles.btnFav)}></span></button>
+            <button onClick={() => setFavorite(!isFavorite)} className={clsx(styles.icon + ' fa fa-star-o', isFavorite && styles.isActive)}></button>
             </li>
     );
 };
 
 export default Card;
-
-
-// className={clsx(styles.body, props.className)}
-// className={clsx(props.prepareColorClassName(item), item === props.currentColor && styles.active)} onClick={() => props.setColor(item)}

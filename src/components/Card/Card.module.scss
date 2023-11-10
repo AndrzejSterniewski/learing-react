@@ -18,6 +18,13 @@ button {
     background: none;
     cursor: pointer;
 }
-button::after {
+
+// use this ?
+// button::after {
+//     color: $color-warning;
+// }
+// or this: ?
+
+button.isActive{
     color: $color-warning;
 }

@@ -4,16 +4,16 @@ import PageTitle from '../PageTitle/PageTitle';
 import { getFavoriteCards } from '../../redux/store';
 import { useSelector } from 'react-redux';
 
-const Favorite = () => {
+const Favorite = (props) => {
 
     // NEW CODE
-    const favCards = useSelector(getFavoriteCards);
+    const favCards = useSelector(state => getFavoriteCards(state, props.isFavorite));
+    console.log('favorite cards', favCards);
 
     return (
-        <article className={styles.favorite}>
+        <article className={styles.columns}>
             <PageTitle>Favorite</PageTitle>
-            <p>lorem ipsum</p>
-            <ul className={styles.cards}>
+            <ul className={styles.column}>
                 {favCards.map(card => <Card key={card.id} {...card} />)}
             </ul>
         </article>
