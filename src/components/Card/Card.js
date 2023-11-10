@@ -1,32 +1,23 @@
 import styles from './Card.module.scss';
-import { useState } from 'react';
-import { getFavoriteCards, toggleCardFavorite } from '../../redux/store';
-import { useDispatch, useSelector } from 'react-redux';
-import shortid from 'shortid';
+import { toggleCardFavorite } from '../../redux/store';
+import { useDispatch } from 'react-redux';
 import clsx from 'clsx';
 
 const Card = props => {
-
-    const [isFavorite, setFavorite] = useState(false);
     
     const dispatch = useDispatch();
 
-    console.log(isFavorite);
-
-    const handleSubmit = e => {
-        e.preventDefault();
-        // props.action({ title: title, icon: icon });
-        // dispatch({ type: 'ADD_COLUMN', newColumn: { title, icon } });
-        // dispatch({ type: 'ADD_COLUMN', payload: { title, icon, id: shortid() } });
-        
-        // dispatch(toggleCardFavorite({ id: shortid(), title, icon, isFavorite }));
-        dispatch(toggleCardFavorite({ id: shortid(), isFavorite, title: props.title }));
+    const handleSubmit = () => {
+        dispatch(toggleCardFavorite(props.id))
     };
 
     return (
-            <li className={styles.card} onSubmit={handleSubmit}>{props.title}
-            <button onClick={() => setFavorite(!isFavorite)} className={clsx(styles.icon + ' fa fa-star-o', isFavorite && styles.isActive)}></button>
-            </li>
+        <li className={styles.card} onSubmit={handleSubmit}>{props.title}
+        <span>
+            <button onClick={handleSubmit} className={clsx(styles.icon + ' fa fa-star-o', props.isFavorite && styles.isActive)}></button>
+            <button className={clsx(styles.icon + ' fa fa-trash')}></button>
+            </span>
+        </li>
     );
 };
 

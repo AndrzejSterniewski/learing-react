@@ -22,7 +22,9 @@ const ColumnForm = props => {
         // dispatch({ type: 'ADD_COLUMN', payload: { title, icon, id: shortid() } });
         
         // new property added listId
-        dispatch(addColumn({ title, icon, id: shortid() }));
+        // this was wrong:
+        // dispatch(addColumn({ title, icon, id: shortid() }));
+        dispatch(addColumn({ title, icon, id: shortid(), listId: props.listId }));
         setTitle('');
         setIcon('');
     };
