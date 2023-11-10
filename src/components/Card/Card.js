@@ -11,7 +11,6 @@ const Card = props => {
     
     const dispatch = useDispatch();
 
-    const favCards = useSelector(() => getFavoriteCards);
     console.log(isFavorite);
 
     const handleSubmit = e => {
