@@ -1,5 +1,5 @@
 import styles from './Card.module.scss';
-import { toggleCardFavorite } from '../../redux/store';
+import { toggleCardFavorite, removeCard } from '../../redux/store';
 import { useDispatch } from 'react-redux';
 import clsx from 'clsx';
 
@@ -11,11 +11,15 @@ const Card = props => {
         dispatch(toggleCardFavorite(props.id))
     };
 
+    const deleteCard = () => {
+        dispatch(removeCard(props.id));
+    }
+
     return (
         <li className={styles.card} onSubmit={handleSubmit}>{props.title}
         <span>
             <button onClick={handleSubmit} className={clsx(styles.icon + ' fa fa-star-o', props.isFavorite && styles.isActive)}></button>
-            <button className={clsx(styles.icon + ' fa fa-trash')}></button>
+            <button onClick={deleteCard} className={clsx(styles.icon + ' fa fa-trash')}></button>
             </span>
         </li>
     );

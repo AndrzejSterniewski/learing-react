@@ -24,21 +24,21 @@ export const getColumnsByList = ({ columns }, listId) => columns.filter(column =
 
 export const getAllLists = (state => state.lists);
 
-// NEW CODE
 // export const getFavoriteCards = ({ cards }, isFavorite) => cards.filter(card => card.isFavorite === isFavorite);
-export const getFavoriteCards = ( { cards }) => cards.filter(card => card.isFavorite)
-
+export const getFavoriteCards = ({ cards }) => cards.filter(card => card.isFavorite)
 
 // ACTION CREATORS
 export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
 
 export const addCard = payload => ({ type: 'ADD_CARD', payload });
 
+// NEW CODE
+export const removeCard = payload => ({ type: 'REMOVE_CARD', payload });
+
 export const addList = payload => ({ type: 'ADD_LIST', payload });
 
 export const updateSearchstring = payload => ({ type: 'UPDATE_SEARCHSTRING', payload });
 
-// NEW CODE
 export const toggleCardFavorite = payload => ({ type: 'TOGGLE_CARD_FAVORITE', payload });
 
 const reducer = (state, action) => {
@@ -49,6 +49,11 @@ const reducer = (state, action) => {
       return { ...state, columns: [...state.columns, { ...action.payload, id: shortid() }] };
     case 'ADD_CARD':
       return { ...state, cards: [...state.cards, { ...action.payload, id: shortid() }] };
+
+    // NEW CODE
+    case 'REMOVE_CARD':
+      return { ...state, cards: state.cards.filter(card => card.id !== action.payload) };
+
     case 'ADD_LIST':
       return { ...state, lists: [...state.lists, { ...action.payload, id: shortid() }] };
     case 'UPDATE_SEARCHSTRING':
