@@ -19,12 +19,15 @@ button {
     cursor: pointer;
 }
 
-// use this ?
-// button::after {
-//     color: $color-warning;
-// }
-// or this: ?
-
 button.isActive{
     color: $color-warning;
 }
+
+.deleteHover {
+    &:hover {
+    //    first option:
+    //    font-weight: bold;
+    //    I prefer this one more:
+       color: $color-warning;
+    }
+ }
