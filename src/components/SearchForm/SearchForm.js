@@ -2,7 +2,7 @@ import styles from './SearchForm.module.scss';
 import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateSearchstring } from '../../redux/store';
+import { updateSearchstring } from '../../redux/searchStringRedux';
 
 const SearchForm = (props) => {
 
@@ -19,7 +19,7 @@ const SearchForm = (props) => {
 
     return (
         <form className={styles.searchForm}>
-            <TextInput placeholder="Search..." action={props.action} defaultValue={searchString} onChange={handleChange}/>
+            <TextInput placeholder="Search..." action={props.action} defaultValue={searchString} onChange={handleChange} />
             {/* <Button>Search </Button> */}
             <Button>
                 <span className="fa fa-search" />
