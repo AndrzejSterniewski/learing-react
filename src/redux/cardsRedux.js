@@ -13,9 +13,9 @@ const TOGGLE_CARD_FAVORITE = createActionName('TOGGLE_CARD_FAVORITE');
 const REMOVE_CARD = createActionName('REMOVE_CARD');
 
 // action creators
-export const addCard = payload => ({ type: 'ADD_CARD', payload });
-export const removeCard = payload => ({ type: 'REMOVE_CARD', payload });
-export const toggleCardFavorite = payload => ({ type: 'TOGGLE_CARD_FAVORITE', payload });
+export const addCard = payload => ({ type: ADD_CARD, payload });
+export const removeCard = payload => ({ type: REMOVE_CARD, payload });
+export const toggleCardFavorite = payload => ({ type: TOGGLE_CARD_FAVORITE, payload });
 
 const cardsReducer = (statePart = [], action) => {
     switch (action.type) {

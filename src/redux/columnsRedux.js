@@ -9,7 +9,7 @@ const createActionName = actionName => `app/columns/${actionName}`;
 const ADD_COLUMN = createActionName('ADD_COLUMN');
 
 // action creators
-export const addColumn = payload => ({ type: 'ADD_COLUMN', payload });
+export const addColumn = payload => ({ type: ADD_COLUMN, payload });
 
 const columnsReducer = (statePart = [], action) => {
     switch (action.type) {

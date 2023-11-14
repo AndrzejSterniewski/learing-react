@@ -3,7 +3,7 @@ const createActionName = actionName => `app/${actionName}`;
 const UPDATE_SEARCHSTRING = createActionName('UPDATE_SEARCHSTRING');
 
 // action creators
-export const updateSearchstring = payload => ({ type: 'UPDATE_SEARCHSTRING', payload });
+export const updateSearchstring = payload => ({ type: UPDATE_SEARCHSTRING, payload });
 
 const searchStringReducer = (statePart = '', action) => {
     switch (action.type) {
