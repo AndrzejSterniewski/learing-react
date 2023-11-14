@@ -23,7 +23,8 @@ const cardsReducer = (statePart = [], action) => {
             return [...statePart, { ...action.payload, id: shortid() }];
         case TOGGLE_CARD_FAVORITE:
             return statePart.map(card => (card.id === action.payload) ? { ...card, isFavorite: !card.isFavorite } : card);
-        // NEW CODE
+            // startamy sięprzejsć po każdym elemencie talibcy kard, jeśli się zgadza card.id to zwracamy obiekt card i isFavorite ustawiwmy na coś przeciwnego co było do tej pory, czyli negacj+a
+            // jeśli jest inaczejto zwracamy kartę bezzmian, po staremu
         case REMOVE_CARD:
             return statePart.filter(card => card.id !== action.payload);
         default:

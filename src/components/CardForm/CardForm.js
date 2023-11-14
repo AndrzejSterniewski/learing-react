@@ -16,8 +16,6 @@ const CardForm = props => {
         e.preventDefault();
         // props.action({ title: title }, props.columnId);
         // dispatch({ type: 'ADD_CARD', payload: { id: shortid(), columnId: props.columnId, title } });
-
-        // NEW CODE, isFavorite is undefined
         dispatch(addCard({ id: shortid(), columnId: props.columnId, isFavorite: props.isFavorite, title }));
         setTitle('');
     };

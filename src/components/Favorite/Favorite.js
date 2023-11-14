@@ -6,9 +6,7 @@ import { useSelector } from 'react-redux';
 
 const Favorite = (props) => {
 
-    // NEW CODE
     const favCards = useSelector(state => getFavoriteCards(state, props.isFavorite));
-    console.log('favorite cards', favCards);
 
     return (
         <article className={styles.columns}>
